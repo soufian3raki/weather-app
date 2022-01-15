@@ -37,7 +37,7 @@ body {
     box-shadow: 0 0 70px -10px $color_5;
     background-color: $color_4;
     color: $color_text;
-    height: 400px;
+    height: 450px;
 }
 
 .weather-side {
@@ -161,7 +161,7 @@ body {
             color: $color_2;
             box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
         }
-        .active {
+        &.active {
             background: $color_text;
             color: $color_2;
             border-radius: 10px;
