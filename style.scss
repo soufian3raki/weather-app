@@ -24,12 +24,13 @@ $m-1: 25px;
 body {
     margin: 0;
     width: 100%;
-    height: 100vh;
     font-family: Audiowide, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: $color_5;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    min-height: 100vh;
 }
 
 .container {
@@ -37,180 +38,229 @@ body {
     box-shadow: 0 0 70px -10px $color_5;
     background-color: $color_4;
     color: $color_text;
-    height: 450px;
-}
+    display: flex;
 
-.weather-side {
-    position: relative;
-    height: 100%;
-    border-radius: $m-1;
-    background-image: url("https://image.freepik.com/foto-gratis/hermoso-paisaje-marino-mar-fondo-retro_1203-5782.jpg");
-    width: 300px;
-    box-shadow: 0 0 20px -10px $color_1;
-    transition: transform 300ms ease;
-    transform: translateZ(0) scale(1.02) perspective(1000px);
-    float: left;
-}
-
-.weather-side:hover {
-    transform: scale(1.1) perspective(1500px) rotateY(10deg);
-}
-
-.weather-gradient {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: var(--gradient);
-    border-radius: $m-1;
-    opacity: 0.8;
-}
-
-.date-container {
-    position: absolute;
-    top: $m-1;
-    left: $m-1;
-}
-
-.date-dayname {
-    margin: 0;
-}
-
-.date-day, .hora {
-    display: block;
-}
-
-.location {
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.location-icon {
-    display: inline-block;
-    height: 0.8em;
-    width: auto;
-    margin-right: 5px;
-}
-
-.weather-container {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-}
-
-.weather-icon.feather {
-    height: 60px;
-    width: auto;
-}
-
-.weather-temp {
-    margin: 0;
-    font-weight: 700;
-    font-size: 4em;
-}
-
-.weather-desc {
-    margin: 0;
-}
-
-.info-side {
-    position: relative;
-    float: left;
-    height: 100%;
-    padding-top: 25px;
-}
-
-.today-info {
-    padding: 15px;
-    margin: 0 25px 25px 25px;
-    /* 	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25); */
-    border-radius: 10px;
-}
-
-.today-info {
-    div {
-        &:not(:last-child) {
-            margin: 0 0 10px 0;
-        }
-        .title {
-            float: left;
-            font-weight: 700;
-        }
-        .value {
-            float: right;
-        }
-    }
-}
-
-.week-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 35px;
-    box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    li {
+    .weather-side {
+        position: relative;
+        height: 450px;
+        border-radius: $m-1;
+        background-image: url("https://image.freepik.com/foto-gratis/hermoso-paisaje-marino-mar-fondo-retro_1203-5782.jpg");
+        width: 300px;
+        box-shadow: 0 0 20px -10px $color_1;
+        transition: transform 300ms ease;
+        transform: translateZ(0) scale(1.02) perspective(1000px);
         float: left;
-        padding: 15px;
-        cursor: pointer;
-        transition: 200ms ease;
-        border-radius: 10px;
+    
         &:hover {
-            transform: scale(1.1);
-            background: $color_text;
-            color: $color_2;
-            box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
+            transform: scale(1.1) perspective(1500px) rotateY(10deg);
         }
-        &.active {
-            background: $color_text;
-            color: $color_2;
+    
+        .weather-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: var(--gradient);
+            border-radius: $m-1;
+            opacity: 0.8;
+        }
+        
+        .date-container {
+            position: absolute;
+            top: $m-1;
+            left: $m-1;
+            width: 85%;
+    
+            .date-dayname {
+                margin: 0;
+            }
+            
+            .date-day {
+                display: block;
+            }
+
+            .time {
+                text-align: end;
+                font-size: xx-large;
+                position: absolute;
+                left: 150px;
+            }
+            
+            .location {
+                display: inline-block;
+                margin-top: 10px;
+            }
+            
+            .location-icon {
+                display: inline-block;
+                height: 0.8em;
+                width: auto;
+                margin-right: 5px;
+            }
+        }
+    
+        .weather-container {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+        
+            .weather-icon {
+                height: 250px;
+                width: auto;
+            }
+            
+            .weather-temp {
+                margin: 0;
+                font-weight: 700;
+                font-size: 4em;
+            }
+            
+            .weather-desc {
+                margin: 0;
+            }
+        }
+    }
+    
+    .info-side {
+        /*position: relative; */
+        float: left;
+        min-height: 100%;
+        padding-top: 50px;
+        // background-color: #2E4159;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    
+        .today-info-container {
+            width: 80%;
+    
+            .today-info {
+                div {
+                    &:not(:last-child) {
+                        margin: 0 0 10px 0;
+                    }
+    
+                    .title {
+                        float: left;
+                        font-weight: 700;
+                    }
+    
+                    .value {
+                        float: right;
+                    }
+                }
+            }
+        }
+    
+        .week-list {
+            list-style-type: none;
+            // padding: 0;
+            margin: 10px 23px;
+            box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
+    
+            ul{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+    
+            li {
+                float: left;
+                padding: 15px;
+                cursor: pointer;
+                transition: 200ms ease;
+                border-radius: 10px;
+    
+                &:hover {
+                    transform: scale(1.1);
+                    background: $color_text;
+                    color: $color_2;
+                    box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)
+                }
+    
+                &.active {
+                    background: $color_text;
+                    color: $color_2;
+                    border-radius: 10px;
+                    width: 175px;
+                    /* height: 148px; */
+                    text-align: center;
+                }
+                .day-name {
+                    display: block;
+                    margin: 10px 0 0 0;
+                    text-align: center;
+                }
+                
+                .day-icon {
+                    display: block;
+                    height: 30px;
+                    width: auto;
+                    margin: 0 auto;
+                }
+                
+                .day-temp {
+                    display: block;
+                    text-align: center;
+                    margin: 10px 0 0 0;
+                    font-weight: 700;
+                }
+            }
         }
-        .day-name {
-            display: block;
-            margin: 10px 0 0 0;
-            text-align: center;
-        }
-        
-        .day-icon {
-            display: block;
-            height: 30px;
-            width: auto;
-            margin: 0 auto;
-        }
-        
-        .day-temp {
-            display: block;
-            text-align: center;
-            margin: 10px 0 0 0;
-            font-weight: 700;
+    
+        .location-container {
+    
+            padding: 25px 35px;
+    
+            .location-button {
+                outline: none;
+                width: 100%;
+                box-sizing: border-box;
+                border: none;
+                border-radius: 25px;
+                padding: 10px;
+                background-image: var(--gradient);
+                color: $color_text;
+                font-weight: 700;
+                box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+                cursor: pointer;
+                transition: transform 200ms ease;
+                &:hover {
+                    transform: scale(0.95);
+                }
+                .feather {
+                    height: 1em;
+                    width: auto;
+                    margin-right: 5px;
+                }
+            }
         }
     }
 }
 
-.location-container {
-    padding: 25px 35px;
+@media only screen and (max-width: 1220px){
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: $color_4;
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 30px;   
+        width: 312px;
+    }
 }
 
-.location-button {
-    outline: none;
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 25px;
-    padding: 10px;
-    background-image: var(--gradient);
-    color: $color_text;
-    font-weight: 700;
-    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: transform 200ms ease;
-    &:hover {
-        transform: scale(0.95);
-    }
-    .feather {
-        height: 1em;
-        width: auto;
-        margin-right: 5px;
-    }
-}
+
+
+
+
+
+
+
+
